@@ -7,40 +7,12 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        h1.title-main {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 32px;
-            color: #333;
-        }
-        .description {
-            text-align: center;
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        /* Centering the graphs */
-        #choropleth-map, #stacked-area-chart {
-            display: block;
-            margin: 20px auto; /* Centers the graphs horizontally */
-            max-width: 90%; /* Ensures responsiveness on small screens */
-        }
-    </style>
 </head>
 <body>
 
-    <h1 class="title-main">Renewable Energy</h1>
+  <h1 class="title-main">Renewable Energy</h1>
 
-    <!-- Description for Choropleth Map -->
-    
     <div id="choropleth-map"></div>
-
-    <!-- Description for Stacked Area Chart -->
-    
     <div id="stacked-area-chart"></div>
 
     <script>
