@@ -17,7 +17,11 @@
         "as": ["Electricity_source", "Value"]
       }
     ],
-    "mark": "area",
+    "mark": {
+      "type": "area",
+      "stroke": "black", 
+      "strokeWidth": 1    
+    },
     "params": [
       {
         "name": "source_highlight",
@@ -75,18 +79,18 @@
         {
           "field": "Electricity_source",
           "type": "nominal",
-          "title": "Source of Electricity"
+          "title": "Source of Electricity:"
         },
         {
           "field": "Year",
           "type": "temporal",
           "format": "%Y",
-          "title": "Year"
+          "title": "Year:"
         },
         {
           "field": "Value",
           "type": "quantitative",
-          "title": "Generation (TWh)",
+          "title": "Generation (TWh):",
           "format": ".2f"
         }
       ]
