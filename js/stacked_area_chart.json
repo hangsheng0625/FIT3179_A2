@@ -1,7 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Renewable Energy Generation by Source Over Time",
-    "width": 760,
+    "width": 800,
     "height": 400,
     "data": {
       "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/data/modern-renewable-energy-consumption.csv"
@@ -49,7 +48,7 @@
         "title": null,
         "scale": {
           "domain": [
-            "Other renewables - TWh",
+            "Other renewables (including geothermal and biomass) electricity generation - TWh",
             "Solar generation - TWh",
             "Wind generation - TWh",
             "Hydro generation - TWh"
