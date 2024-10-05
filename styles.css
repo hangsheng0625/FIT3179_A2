@@ -1,8 +1,9 @@
 #symbol_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+    position: relative;  /* To allow top and bottom positioning within its container */
+    margin: 0 auto;      /* Center horizontally */
+    top: 100px;          /* Adds space from the top */
+    max-width: 800px;    /* Ensures the map won't exceed a certain width */
+    max-height: 1000px;  /* Sets a max height to avoid overflow */
+    width: 100%;         /* Make the width responsive (can shrink on smaller screens) */
+    height: auto;        /* Keep aspect ratio */
 }

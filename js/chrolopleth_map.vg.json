@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Global Renewable Energy Share (% of Equivalent Primary Energy)",
+  "title": "Global Renewable Energy Share (% of Equivalent Primary Energy) in 2023",
   "width": 800,
   "height": 500,
   "projection": {"type": "equalEarth"},
