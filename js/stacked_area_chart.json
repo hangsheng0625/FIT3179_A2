@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/data/modern-renewable-energy-consumption.csv"
+    },
+    "transform": [
+      {
+        "fold": [
+          "Other renewables (including geothermal and biomass) electricity generation - TWh",
+          "Solar generation - TWh",
+          "Wind generation - TWh",
+          "Hydro generation - TWh"
+        ],
+        "as": ["Electricity_source", "Value"]
+      }
+    ],
+    "mark": {"type": "area"},
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "temporal",
+        "axis": {
+          "grid": false,
+          "tickCount": 10
+        }
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "Value",
+        "title": "Total Electricity Generation (TWh)",
+        "stack": true
+      },
+      "color": {
+        "field": "Electricity_source",
+        "type": "nominal",
+        "title": null,
+        "scale": {
+          "domain": [
+            "Other renewables (including geothermal and biomass) electricity generation - TWh",
+            "Solar generation - TWh",
+            "Wind generation - TWh",
+            "Hydro generation - TWh"
+          ],
+          "range": [
+            "#a65628",
+            "#4daf4a",
+            "#377eb8",
+            "#984ea3"
+          ]
+        },
+        "legend": {
+          "orient": "top",
+          "labelFontSize": 12,
+          "titleFontSize": 12
+        }
+      },
+      "tooltip": [
+        {
+          "field": "Electricity_source",
+          "type": "nominal",
+          "title": "Source of Electricity"
+        },
+        {
+          "field": "Year",
+          "type": "temporal",
+          "format": "%Y",
+          "title": "Year"
+        },
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Generation (TWh)",
+          "format": ".2f"
+        }
+      ]
+    }
+  }

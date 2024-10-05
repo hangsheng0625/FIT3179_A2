@@ -14,7 +14,7 @@
       "value": 2023,
       "bind": {
         "input": "range",
-        "min": 2000,
+        "min": 1965,
         "max": 2023,
         "step": 1,
         "name": "Year: "
@@ -26,7 +26,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/data/renewable-share-energy-(map)-filtered.csv"
+          "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/data/renewable-share-energy-(map).csv"
         },
         "key": "Entity",
         "fields": ["Year", "Renewables (% equivalent primary energy)"]
