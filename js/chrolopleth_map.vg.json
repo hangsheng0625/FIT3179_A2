@@ -49,6 +49,15 @@
           }
         }
       ],
+      "params": [
+        {
+          "name": "pointCountry",
+          "select": {
+            "type": "point",
+            "on": "click"
+          }
+        }
+      ],
       "mark": {"type": "geoshape", "stroke": "#e5e5e5"},
       "encoding": {
         "color": {
@@ -65,7 +74,14 @@
             "title": "Renewable Energy Share (%)",
             "format": ".2f"
           }
-        ]
+        ],
+        "fillOpacity": {
+          "condition": {
+            "param": "pointCountry",
+            "value": 1
+          },
+          "value": 0.3
+        }
       }
     },
     {
