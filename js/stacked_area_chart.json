@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Renewable Energy Generation by Source Over Time",
     "width": 760,
     "height": 400,
     "data": {
