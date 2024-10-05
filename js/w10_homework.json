@@ -6,28 +6,61 @@
         "width": 800,
         "height": 500,
         "projection": {"type": "equalEarth"},
-        "data": {
-          "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/js/ne_110m_admin_0_countries.json",
-          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-        },
-        "transform": [
+        "layer": [
           {
-            "lookup": "properties.NAME",
-            "from": {
-              "data": {
-                "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/data/renewable-share-energy-(map).csv"
-              },
-              "key": "Entity",
-              "fields": ["Year", "Renewables (% equivalent primary energy)"]
+            // Add ocean layer
+            "data": {
+              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "oceans"
+              }
+            },
+            "mark": {
+              "type": "geoshape",
+              "fill": "#b9d8f6"
             }
           },
           {
-            "filter": "datum.Year == 2023"
-          }
-        ],
-        "layer": [
+            // Add graticule layer
+            "data": {
+              "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/js/ne_110m_graticules_30.json",
+              "format": {
+                "type": "topojson",
+                "feature": "ne_110m_graticules_30"
+              }
+            },
+            "mark": {
+              "type": "geoshape",
+              "fill": null,
+              "stroke": "#bdbcbc"
+            }
+          },
           {
-            "mark": {"type": "geoshape"},
+            // Main geoshape layer for countries and energy share
+            "data": {
+              "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/js/ne_110m_admin_0_countries.json",
+              "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+            },
+            "transform": [
+              {
+                "lookup": "properties.NAME",
+                "from": {
+                  "data": {
+                    "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/data/renewable-share-energy-(map).csv"
+                  },
+                  "key": "Entity",
+                  "fields": ["Year", "Renewables (% equivalent primary energy)"]
+                }
+              },
+              {
+                "filter": "datum.Year == 2023"
+              }
+            ],
+            "mark": {
+              "type": "geoshape",
+              "stroke": "#e5e5e5"
+            },
             "encoding": {
               "color": {
                 "field": "Renewables (% equivalent primary energy)",
@@ -35,7 +68,8 @@
                 "scale": {
                   "scheme": "bluegreen",
                   "domain": [0, 100]
-                }
+                },
+                "title": "Renewable Energy Share (%)"
               },
               "tooltip": [
                 {"field": "properties.NAME", "type": "nominal", "title": "Country"},
@@ -49,6 +83,7 @@
             }
           },
           {
+            // Add annotation text about Norway
             "mark": {
               "type": "text",
               "fontSize": 13,
@@ -121,14 +156,16 @@
           }
         ],
         "mark": "area",
-        "params": [{
-          "name": "source_highlight",
-          "select": {
-            "type": "point",
-            "fields": ["Electricity_source"]
-          },
-          "bind": "legend"
-        }],
+        "params": [
+          {
+            "name": "source_highlight",
+            "select": {
+              "type": "point",
+              "fields": ["Electricity_source"]
+            },
+            "bind": "legend"
+          }
+        ],
         "encoding": {
           "x": {
             "field": "Year",
@@ -195,3 +232,4 @@
       }
     ]
   }
+  

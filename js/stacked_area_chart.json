@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width": 800,
     "height": 400,
     "data": {
       "url": "https://raw.githubusercontent.com/hangsheng0625/FIT3179_A2/main/data/modern-renewable-energy-consumption.csv"
@@ -16,7 +16,17 @@
         "as": ["Electricity_source", "Value"]
       }
     ],
-    "mark": {"type": "area"},
+    "mark": "area",
+    "params": [
+      {
+        "name": "source_highlight",
+        "select": {
+          "type": "point",
+          "fields": ["Electricity_source"]
+        },
+        "bind": "legend"
+      }
+    ],
     "encoding": {
       "x": {
         "field": "Year",
@@ -51,10 +61,14 @@
           ]
         },
         "legend": {
-          "orient": "top",
+          "orient": "right",
           "labelFontSize": 12,
           "titleFontSize": 12
         }
+      },
+      "opacity": {
+        "condition": {"param": "source_highlight", "value": 1},
+        "value": 0.2
       },
       "tooltip": [
         {
@@ -77,3 +91,4 @@
       ]
     }
   }
+  
